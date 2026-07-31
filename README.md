@@ -190,14 +190,8 @@ This project strengthened my understanding of:
 - **Satveer Kaur**
 - **Arshpreet Kour**
 - **Navdeep Kaur**
-- **Akshra**
+- **Akshra Dang**
 - **Arushi**
-
----
-
-# 📄 License
-
-This project is licensed under the **MIT License**.
 
 ---
 
