@@ -8,13 +8,10 @@
 // Constructor
 Graph::Graph()
 {
-    // Nothing to initialize for now
 }
 
-// Add a new city
 void Graph::addCity(const string& city)
 {
-    // Check if city already exists
     if (adjacencyList.find(city) == adjacencyList.end())
     {
         adjacencyList[city] = vector<Edge>();
@@ -26,12 +23,10 @@ void Graph::addCity(const string& city)
     }
 }
 
-// Add a road between two cities
 void Graph::addRoute(const string& source,
                      const string& destination,
                      int distance)
 {
-    // Validation
     if (source == destination)
     {
         cout << "Source and Destination cannot be the same.\n";
@@ -47,7 +42,6 @@ void Graph::addRoute(const string& source,
     addCity(source);
     addCity(destination);
 
-    // Check if route already exists
     for (const auto &road : adjacencyList[source])
     {
         if (road.destination == destination)
@@ -57,14 +51,12 @@ void Graph::addRoute(const string& source,
         }
     }
 
-    // Add route in both directions
     adjacencyList[source].push_back({destination, distance});
     adjacencyList[destination].push_back({source, distance});
 
     cout << "Route added successfully.\n";
 }
 
-// Display complete graph
 void Graph::displayGraph() const
 {
     cout << "\n============================================\n";
@@ -104,7 +96,6 @@ void Graph::displayGraph() const
 }
 void Graph::findShortestPath(const string& source, const string& destination)
 {
-    // Check if source and destination exist
     if (adjacencyList.find(source) == adjacencyList.end() ||
         adjacencyList.find(destination) == adjacencyList.end())
     {
@@ -115,7 +106,6 @@ void Graph::findShortestPath(const string& source, const string& destination)
     unordered_map<string, int> distance;
     unordered_map<string, string> parent;
 
-    // Initialize distances
     for (const auto& city : adjacencyList)
     {
         distance[city.first] = numeric_limits<int>::max();
@@ -123,7 +113,6 @@ void Graph::findShortestPath(const string& source, const string& destination)
 
     distance[source] = 0;
 
-    // Min Heap (distance, city)
     priority_queue<
         pair<int, string>,
         vector<pair<int, string>>,
@@ -150,7 +139,6 @@ void Graph::findShortestPath(const string& source, const string& destination)
         }
     }
 
-    // No path found
     if (distance[destination] == numeric_limits<int>::max())
     {
         cout << "No route exists between "

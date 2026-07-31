@@ -6,7 +6,6 @@
 
 using namespace std;
 
-// Save graph data
 void FileManager::saveData(Graph &graph)
 {
     ofstream cityFile("data/cities.txt");
@@ -18,13 +17,11 @@ void FileManager::saveData(Graph &graph)
         return;
     }
 
-    // Save Cities
     for (const auto &city : graph.adjacencyList)
     {
         cityFile << city.first << endl;
     }
 
-    // Save Routes
     set<pair<string, string>> savedRoutes;
 
     for (const auto &city : graph.adjacencyList)
@@ -34,7 +31,6 @@ void FileManager::saveData(Graph &graph)
             string city1 = city.first;
             string city2 = road.destination;
 
-            // Avoid duplicate routes
             if (city1 > city2)
                 swap(city1, city2);
 
@@ -67,7 +63,6 @@ void FileManager::loadData(Graph &graph)
 
     string city;
 
-    // Load Cities
     while (cityFile >> city)
     {
         graph.addCity(city);
@@ -76,7 +71,6 @@ void FileManager::loadData(Graph &graph)
     string source, destination;
     int distance;
 
-    // Load Routes
     while (routeFile >> source >> destination >> distance)
     {
         graph.addRoute(source, destination, distance);
