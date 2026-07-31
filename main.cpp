@@ -1,12 +1,9 @@
-#include <iostream>
-using namespace std;
+#include "include/Menu.h"
 
 int main()
 {
-    cout << "=====================================\n";
-    cout << "     SMART ROUTE PLANNER\n";
-    cout << "=====================================\n";
-    cout << "Project Created Successfully!\n";
+    Menu menu;
+    menu.start();
 
     return 0;
 }
