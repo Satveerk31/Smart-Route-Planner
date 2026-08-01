@@ -10,7 +10,7 @@ A **Graph-based Smart Route Planner** developed in **C++** using **Object-Orient
 
 ---
 
-# 📖 Overview
+# Overview
 
 Smart Route Planner is a console-based application designed to simulate a road navigation system. Cities are represented as **vertices** and roads as **edges** in a graph.
 
@@ -160,7 +160,6 @@ g++ main.cpp src/Graph.cpp src/FileManager.cpp src/Menu.cpp -o planner
 # 🎯 Learning Outcomes
 
 This project strengthened my understanding of:
-
 - Graph Data Structures
 - Shortest Path Algorithms
 - Graph Traversal Techniques
