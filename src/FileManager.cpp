@@ -6,36 +6,29 @@
 
 using namespace std;
 
-void FileManager::saveData(Graph &graph)
-{
+void FileManager::saveData(Graph &graph){
     ofstream cityFile("data/cities.txt");
     ofstream routeFile("data/routes.txt");
 
-    if (!cityFile || !routeFile)
-    {
+    if (!cityFile || !routeFile){
         cout << "Error opening file!\n";
         return;
     }
-
     for (const auto &city : graph.adjacencyList)
     {
         cityFile << city.first << endl;
     }
 
     set<pair<string, string>> savedRoutes;
-
-    for (const auto &city : graph.adjacencyList)
-    {
-        for (const Edge &road : city.second)
-        {
+    for (const auto &city : graph.adjacencyList){
+        for (const Edge &road : city.second){
             string city1 = city.first;
             string city2 = road.destination;
 
             if (city1 > city2)
                 swap(city1, city2);
 
-            if (savedRoutes.find({city1, city2}) == savedRoutes.end())
-            {
+            if (savedRoutes.find({city1, city2}) == savedRoutes.end()){
                 routeFile << city1 << " "
                           << city2 << " "
                           << road.distance << endl;
@@ -50,29 +43,25 @@ void FileManager::saveData(Graph &graph)
 
     cout << "Data saved successfully!\n";
 }
-void FileManager::loadData(Graph &graph)
-{
+void FileManager::loadData(Graph &graph){
     ifstream cityFile("data/cities.txt");
     ifstream routeFile("data/routes.txt");
 
-    if (!cityFile || !routeFile)
-    {
+    if (!cityFile || !routeFile){
         cout << "No saved data found.\n";
         return;
     }
 
     string city;
 
-    while (cityFile >> city)
-    {
+    while (cityFile >> city){
         graph.addCity(city);
     }
 
     string source, destination;
     int distance;
 
-    while (routeFile >> source >> destination >> distance)
-    {
+    while (routeFile >> source >> destination >> distance){
         graph.addRoute(source, destination, distance);
     }
 

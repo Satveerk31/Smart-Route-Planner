@@ -9,14 +9,9 @@ using namespace std;
 
 class Graph;
 
-class FileManager
-{
+class FileManager{
 public:
-
-    // Save complete graph
     static void saveData(Graph &graph);
-
-    // Load complete graph
     static void loadData(Graph &graph);
 };
 
