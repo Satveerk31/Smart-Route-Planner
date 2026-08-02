@@ -6,21 +6,17 @@
 
 using namespace std;
 
-void readCityName(string &city)
-{
+void readCityName(string &city){
     getline(cin >> ws, city);
 }
-void Menu::start()
-{
-    // Automatically load previous data
+void Menu::start(){
     FileManager::loadData(routePlanner);
 
     int choice;
     string source, destination;
     int distance;
 
-    do
-    {
+    do{
         cout << "\n=========================================\n";
         cout << "        SMART ROUTE PLANNER\n";
         cout << "=========================================\n";
@@ -40,8 +36,7 @@ void Menu::start()
         cout << "=========================================\n";
         cout << "Enter your choice: ";
 
-        if (!(cin >> choice))
-        {
+        if (!(cin >> choice)){
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
@@ -49,8 +44,7 @@ void Menu::start()
             continue;
         }
 
-        switch (choice)
-        {
+        switch (choice){
         case 1:
 
             cout << "Enter City Name: ";

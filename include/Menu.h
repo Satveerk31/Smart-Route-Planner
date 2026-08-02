@@ -3,8 +3,7 @@
 
 #include "Graph.h"
 
-class Menu
-{
+class Menu{
 private:
     Graph routePlanner;
 
