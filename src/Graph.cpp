@@ -5,13 +5,8 @@
 #include <limits>
 #include <algorithm>
 
-<<<<<<< HEAD
-Graph::Graph(){
-=======
 // Constructor
-Graph::Graph()
-{
->>>>>>> a0125061ba3e1179efed8bc62308d23ad1ad2104
+Graph::Graph(){
 }
 
 void Graph::addCity(const string& city)
@@ -149,11 +144,6 @@ void Graph::findShortestPath(const string& source, const string& destination)
              << source << " and " << destination << ".\n";
         return;
     }
-
-<<<<<<< HEAD
-=======
-    // Reconstruct path
->>>>>>> a0125061ba3e1179efed8bc62308d23ad1ad2104
     vector<string> path;
 
     string current = destination;
@@ -171,29 +161,22 @@ void Graph::findShortestPath(const string& source, const string& destination)
     cout << "\n========== SHORTEST ROUTE ==========\n";
 
     for (size_t i = 0; i < path.size(); i++)
-    {
-        cout << path[i];
+{
+    cout << path[i] << endl;
 
-        if (i != path.size() - 1)
-            cout << " -> ";
+    if (i != path.size() - 1)
+    {
+        cout << "   |" << endl;
+        cout << "   v" << endl;
     }
+}
 
     cout << "\n\nTotal Distance : "
          << distance[destination]
          << " km\n";
-<<<<<<< HEAD
-
-=======
-    // Save route history
->>>>>>> a0125061ba3e1179efed8bc62308d23ad1ad2104
     string history = source + " -> " + destination;
 
     routeHistory.push_front(history);
-
-<<<<<<< HEAD
-=======
-    // Keep only last 5 searches
->>>>>>> a0125061ba3e1179efed8bc62308d23ad1ad2104
     if(routeHistory.size() > 5)
     {
 
@@ -202,20 +185,11 @@ void Graph::findShortestPath(const string& source, const string& destination)
 }
 void Graph::removeCity(const string& city)
 {
-<<<<<<< HEAD
-=======
-    // Check if city exists
->>>>>>> a0125061ba3e1179efed8bc62308d23ad1ad2104
     if (adjacencyList.find(city) == adjacencyList.end())
     {
         cout << "City not found!\n";
         return;
     }
-
-<<<<<<< HEAD
-=======
-    // Remove this city from every other city's route list
->>>>>>> a0125061ba3e1179efed8bc62308d23ad1ad2104
     for (auto &entry : adjacencyList)
     {
         auto &roads = entry.second;
@@ -229,20 +203,12 @@ void Graph::removeCity(const string& city)
             roads.end());
     }
 
-<<<<<<< HEAD
-=======
-    // Remove the city itself
->>>>>>> a0125061ba3e1179efed8bc62308d23ad1ad2104
     adjacencyList.erase(city);
 
     cout << city << " removed successfully.\n";
 }
 void Graph::removeRoute(const string& source, const string& destination)
 {
-<<<<<<< HEAD
-=======
-    // Check if both cities exist
->>>>>>> a0125061ba3e1179efed8bc62308d23ad1ad2104
     if (adjacencyList.find(source) == adjacencyList.end() ||
         adjacencyList.find(destination) == adjacencyList.end())
     {
@@ -250,10 +216,6 @@ void Graph::removeRoute(const string& source, const string& destination)
         return;
     }
 
-<<<<<<< HEAD
-=======
-    // Remove destination from source
->>>>>>> a0125061ba3e1179efed8bc62308d23ad1ad2104
     auto &sourceRoads = adjacencyList[source];
 
     sourceRoads.erase(
@@ -264,10 +226,6 @@ void Graph::removeRoute(const string& source, const string& destination)
                   }),
         sourceRoads.end());
 
-<<<<<<< HEAD
-=======
-    // Remove source from destination
->>>>>>> a0125061ba3e1179efed8bc62308d23ad1ad2104
     auto &destinationRoads = adjacencyList[destination];
 
     destinationRoads.erase(
@@ -284,10 +242,6 @@ void Graph::updateRoute(const string& source,
                         const string& destination,
                         int newDistance)
 {
-<<<<<<< HEAD
-=======
-    // Validation
->>>>>>> a0125061ba3e1179efed8bc62308d23ad1ad2104
     if (source == destination)
     {
         cout << "Source and Destination cannot be the same.\n";
@@ -300,10 +254,6 @@ void Graph::updateRoute(const string& source,
         return;
     }
 
-<<<<<<< HEAD
-=======
-    // Check if both cities exist
->>>>>>> a0125061ba3e1179efed8bc62308d23ad1ad2104
     if (adjacencyList.find(source) == adjacencyList.end() ||
         adjacencyList.find(destination) == adjacencyList.end())
     {
@@ -313,10 +263,6 @@ void Graph::updateRoute(const string& source,
 
     bool found = false;
 
-<<<<<<< HEAD
-=======
-    // Update source -> destination
->>>>>>> a0125061ba3e1179efed8bc62308d23ad1ad2104
     for (auto &road : adjacencyList[source])
     {
         if (road.destination == destination)
@@ -327,10 +273,6 @@ void Graph::updateRoute(const string& source,
         }
     }
 
-<<<<<<< HEAD
-=======
-    // Update destination -> source
->>>>>>> a0125061ba3e1179efed8bc62308d23ad1ad2104
     for (auto &road : adjacencyList[destination])
     {
         if (road.destination == source)
@@ -351,10 +293,6 @@ void Graph::updateRoute(const string& source,
 }
 void Graph::BFS(const string& startCity)
 {
-<<<<<<< HEAD
-=======
-    // Check if city exists
->>>>>>> a0125061ba3e1179efed8bc62308d23ad1ad2104
     if (adjacencyList.find(startCity) == adjacencyList.end())
     {
         cout << "City not found!\n";
@@ -451,10 +389,6 @@ void Graph::graphStatistics() const
         }
     }
 
-<<<<<<< HEAD
-=======
-    // Since each route is stored twice
->>>>>>> a0125061ba3e1179efed8bc62308d23ad1ad2104
     totalRoutes /= 2;
 
     double averageDegree = 0;
