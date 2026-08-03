@@ -1,1 +1,16 @@
+Barnal Ludhiana 75
+Ludhiana Moga 70
+Khanna Ludhiana 40
+Chandigarh Karnal  180
+Ambala Chandigarh 45
+Karnal Kurukshetra 40
+Karnal Panipat 35
 Delhi Panipat 90
+Bathinda Muktsar 50
+Bathinda Faridkot 65
+Barnala Bathinda 70
+Ambala Khanna 95
+Faridkot Muktsar 35
+Faridkot Kotkapura 20
+Ambala Kurukshetra 42
+Kotkapura Moga 45
