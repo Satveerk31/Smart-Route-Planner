@@ -9,22 +9,9 @@
 Graph::Graph(){
 }
 
-void Graph::addCity(const string& city)
-{
-    if (adjacencyList.find(city) == adjacencyList.end())
-    {
-        adjacencyList[city] = vector<Edge>();
-        cout << city << " added successfully.\n";
-    }
-    else
-    {
-        cout << city << " already exists.\n";
-    }
-}
-
 void Graph::addRoute(const string& source,
                      const string& destination,
-                     int distance)
+                     int distance,bool showMessage)
 {
     if (source == destination)
     {
@@ -38,9 +25,6 @@ void Graph::addRoute(const string& source,
         return;
     }
 
-    addCity(source);
-    addCity(destination);
-
     for (const auto &road : adjacencyList[source])
     {
         if (road.destination == destination)
@@ -53,7 +37,10 @@ void Graph::addRoute(const string& source,
     adjacencyList[source].push_back({destination, distance});
     adjacencyList[destination].push_back({source, distance});
 
-    cout << "Route added successfully.\n";
+    if (showMessage)
+    {
+        cout << "Route added successfully.\n";
+    }
 }
 
 void Graph::displayGraph() const
@@ -436,4 +423,14 @@ void Graph::showRouteHistory()
     }
 
     cout << "\n====================================\n";
+}
+void Graph::addCity(const string& city, bool showMessage)
+{
+    if (adjacencyList.find(city) == adjacencyList.end())
+    {
+        adjacencyList[city] = vector<Edge>();
+
+        if(showMessage)
+            cout << city << " added successfully.\n";
+    }
 }

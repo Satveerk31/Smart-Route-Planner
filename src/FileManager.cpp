@@ -55,14 +55,14 @@ void FileManager::loadData(Graph &graph){
     string city;
 
     while (cityFile >> city){
-        graph.addCity(city);
+        graph.addCity(city,false);
     }
 
     string source, destination;
     int distance;
 
     while (routeFile >> source >> destination >> distance){
-        graph.addRoute(source, destination, distance);
+        graph.addRoute(source, destination, distance, false);
     }
 
     cityFile.close();

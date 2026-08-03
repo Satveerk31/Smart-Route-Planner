@@ -25,11 +25,6 @@ private:
 public:
     Graph();
 
-    void addCity(const string& city);
-    void addRoute(const string& source,
-                  const string& destination,
-                  int distance);
-
     void displayGraph() const;
 
     void findShortestPath(const string& source,
@@ -50,6 +45,12 @@ public:
     void graphStatistics() const;
 
     void showRouteHistory();
+
+    void addCity(const string& city, bool showMessage = true);
+    void addRoute(const string& source,
+              const string& destination,
+              int distance,
+              bool showMessage = true);
 };
 
 #endif
