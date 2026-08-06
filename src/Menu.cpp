@@ -112,7 +112,7 @@ void Menu::start(){
 
         case 8:
         {
-            cout << "\nEnter City Name: ";
+            cout<<endl<< "Enter City Name: ";
             readCityName(source);
             
             routePlanner.searchCity(source);
